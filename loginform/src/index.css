@@ -1,0 +1,19 @@
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body{
+  background-image: url(./Image/backgroundImage.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height:100vh;
+  width:100vw;
+  backdrop-filter: blur(2rem);
+}
+input::placeholder{
+  font-family: arial,'FontAwesome';
+
+}
