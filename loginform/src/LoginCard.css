@@ -43,6 +43,7 @@
 	background: none;
 	letter-spacing: 4px;
 	color: white;
+	width: 100%;
 }
 .form-elements:focus-within {
 	background-color: antiquewhite;
@@ -68,7 +69,7 @@
 	justify-content: space-between;
 }
 
-.password-icon{
+.password-icon {
 	background: none;
 	outline: none;
 	border: none;
@@ -81,39 +82,74 @@
 
 .login-btn {
 	border: none;
-	outline: none;
-	padding: 0.5rem 1.5rem;
-	width: 100%;
-	background-color: coral;
-	margin-top: 2rem;
-	font-size: 1rem;
-	color: black;
-	border-radius: 15px;
-}
-
-.error{
-    color:red;
-    margin-bottom: 0.5rem;
+    outline: none;
+    padding: 1rem 1.5rem;
+    width: 100%;
+    background-color: coral;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: black;
+    border-radius: 15px;
+    font-weight: bold;
+	cursor: pointer;
 
 }
-.error i{
-    margin-right:10px;
+
+.card:has(.error) {
+	height: 34rem;
 }
-.hasError{
-    margin-bottom: 0.5rem;
+
+.error {
+	color: white;
+	margin-bottom: 0.5rem;
+	margin-left: 1rem;
+}
+
+.list {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 80%;
+}
+.password-info {
+	font-size: small;
+	width: 90%;
+	margin: 0 auto;
+}
+
+.hasError {
+	margin-bottom: 0.5rem;
 	background-color: #8080804d;
 	width: 20rem;
 	padding: 1rem;
 	font-size: 1vh;
-
 	border-radius: 30px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-    border:1px solid red;
-
+	border: 1px solid red;
 }
 
+.checkbox {
+	display: flex;
+	margin-top: 1rem;
+	flex-direction: row;
+	align-items: center;
+}
+
+input[type="checkbox"] {
+	overflow: visible;
+	outline: none;
+	border: none;
+	background-color: transparent;
+	height: 1rem;
+	width: 1rem;
+	margin-right: 10px;
+	margin-left:10px;
+}
+input[type="checkbox"]:checked {
+	accent-color: coral;
+}
 
 /* Large Mobile view */
 @media only screen and (max-width: 425px) {
@@ -121,8 +157,8 @@
 		font-size: 1.5rem;
 	}
 	.card {
-		width: 87%;
-		height: 34%;
+		width: 83%;
+        height: 66%;
 	}
 }
 /* small mobile view */
