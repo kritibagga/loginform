@@ -184,15 +184,18 @@ const LoginCard = (props) => {
 						</p>
 					</>
 				)}
-				<div className='checkbox'>
-					<input
-						type='checkbox'
-						name='rememberme'
-						id='rememberme'
-						checked={rememberMe}
-						onChange={handleCheckboxChange}
-					/>
-					<label htmlFor='rememberme'>Remember me</label>
+				<div className='checkbox-wrap'>
+					<div className='checkbox'>
+						<input
+							type='checkbox'
+							name='rememberme'
+							id='rememberme'
+							checked={rememberMe}
+							onChange={handleCheckboxChange}
+						/>
+						<label htmlFor='rememberme'>Remember me</label>
+					</div>
+					<a href='https://www.google.com/'>Forgot Password?</a>
 				</div>
 
 				<button
@@ -201,6 +204,8 @@ const LoginCard = (props) => {
 					onClick={handleSubmit}>
 					{props.name}
 				</button>
+				<p className='footer-text'>or Login with</p>
+				<hr />
 				<FormFooter />
 			</form>
 		</div>

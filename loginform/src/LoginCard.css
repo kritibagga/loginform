@@ -1,87 +1,87 @@
-.heading {
-	text-align: center;
-	color: white;
-	margin-top: 1.7rem;
-	font-size: 3rem;
-	font-family: "Times New Roman", Times, serif;
-}
 
 .user-icon {
-	position: absolute;
-	padding: 2rem;
-	border: 2px solid white;
-	border-radius: 50%;
-	top: -12%;
-	left: 35%;
-	background-color: coral;
+    position: absolute;
+    padding: 1.5rem;
+    border: 3px solid white;
+    border-radius: 50%;
+    top: -12%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: coral;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .user-icon > i {
-	font-size: 3rem;
+    font-size: 3rem;
 }
 
 .card {
-	background-color: rgb(0 0 0 / 54%);
-	width: 25rem;
-	height: 27rem;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 90%;
+    max-width: 400px;
+    padding: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
 }
+
 .form {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	color: whitesmoke;
+    color: whitesmoke;
+	margin-top: 2rem;
 }
+
 .form input {
-	outline: none;
-	border: none;
-	background: none;
-	letter-spacing: 4px;
-	color: white;
-	width: 100%;
+    outline: none;
+    border: none;
+    background: none;
+    letter-spacing: 1px;
+    color: white;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
 }
+
 .form-elements:focus-within {
-	background-color: antiquewhite;
-	width: 20rem;
-	padding: 1rem;
-	font-size: 1vh;
-	border-radius: 30px;
+    background-color: antiquewhite;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 30px;
 }
 
 .form-elements:focus-within input {
-	color: black;
+    color: black;
 }
 
 .form-elements {
-	margin-bottom: 0.5rem;
-	background-color: #8080804d;
-	width: 20rem;
-	padding: 1rem;
-	font-size: 1vh;
-	border-radius: 30px;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+    margin-bottom: 1rem;
+    background-color: rgba(128, 128, 128, 0.3);
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    transition: background-color 0.3s ease;
 }
 
 .password-icon {
-	background: none;
-	outline: none;
-	border: none;
-	color: grey;
+    background: none;
+    outline: none;
+    border: none;
+    color: grey;
+	margin-right: 1rem;
 }
 
 .showpassword {
-	font-size: 18px;
+    font-size: 18px;
 }
 
 .login-btn {
-	border: none;
+    border: none;
     outline: none;
     padding: 1rem 1.5rem;
     width: 100%;
@@ -91,80 +91,162 @@
     color: black;
     border-radius: 15px;
     font-weight: bold;
-	cursor: pointer;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
+.login-btn:hover {
+    background-color: darkorange;
 }
 
 .card:has(.error) {
-	height: 34rem;
+    height: auto;
 }
 
 .error {
-	color: white;
-	margin-bottom: 0.5rem;
-	margin-left: 1rem;
+    color: white;
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
+    font-size: 0.8rem;
 }
 
 .list {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
 }
+
 .password-info {
-	font-size: small;
-	width: 90%;
-	margin: 0 auto;
+    font-size: small;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .hasError {
-	margin-bottom: 0.5rem;
-	background-color: #8080804d;
-	width: 20rem;
-	padding: 1rem;
-	font-size: 1vh;
-	border-radius: 30px;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	border: 1px solid red;
+    margin-bottom: 0.5rem;
+    background-color: rgba(128, 128, 128, 0.3);
+	padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid red;
 }
 
 .checkbox {
-	display: flex;
-	margin-top: 1rem;
-	flex-direction: row;
-	align-items: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 input[type="checkbox"] {
-	overflow: visible;
-	outline: none;
-	border: none;
-	background-color: transparent;
-	height: 1rem;
-	width: 1rem;
-	margin-right: 10px;
-	margin-left:10px;
+    overflow: visible;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    height: 1rem;
+    width: 1rem;
+    margin-right: 10px;
+    margin-left: 10px;
 }
+
 input[type="checkbox"]:checked {
-	accent-color: coral;
+    accent-color: coral;
+}
+
+.checkbox-wrap {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+}
+
+.checkbox-wrap a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-text {
+    margin: 2rem 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: small;
+}
+
+.card:has(.error) .footer-text {
+    margin: 1rem;
+}
+
+.card:has(.error) .login-btn {
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.card:has(.error) .form-end {
+    margin-top: 1rem;
+}
+
+/* Small mobile view */
+@media only screen and (max-width: 375px) {
+    .card {
+        width: 90%;
+        padding: 1.5rem;
+    }
+
+    .form-elements {
+        width: 100%;
+    }
+
 }
 
 /* Large Mobile view */
 @media only screen and (max-width: 425px) {
-	.heading {
-		font-size: 1.5rem;
-	}
-	.card {
-		width: 83%;
-        height: 66%;
-	}
-}
-/* small mobile view */
+    .card {
+        width: 90%;
+        padding: 1.5rem;
+    }
 
-@media only screen and (max-width: 375px) {
-	.form-elements {
-		width: 15rem;
-	}
+    .form-elements {
+        width: 100%;
+    }
+
+
+}
+
+/* Tablet View */
+@media only screen and (max-width: 768px) {
+    .card {
+        width: 80%;
+        padding: 1.5rem;
+    }
+
+    .form-elements {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .card {
+        width: 70%;
+        padding: 2rem;
+    }
+
+    .form-elements {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .card {
+		width: 84%;
+        padding: 2rem;
+    }
+
+    .form-elements {
+        width: 100%;
+    }
 }
