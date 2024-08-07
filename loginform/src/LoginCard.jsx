@@ -22,6 +22,7 @@ const LoginCard = (props) => {
 		e.preventDefault();
 		setShowPassword((prev) => !prev);
 	};
+
 	const handleCheckboxChange = (e) => {
 		setRememberMe(e.target.checked);
 	};
@@ -41,12 +42,13 @@ const LoginCard = (props) => {
 
 		if (name === "username") {
 			const usernameRegex = /[!@#$%^&*()\-+={}[\]:;"'<>,.?|\\]/;
-			setUsernameError(usernameRegex.test(formDetails.username));
+			setUsernameError(usernameRegex.test(value));
 		}
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		// Reset criteria and form details after submission
 		setCriteria({
 			hasMinLength: true,
 			hasLetter: true,
@@ -60,22 +62,7 @@ const LoginCard = (props) => {
 		console.log(formDetails);
 	};
 
-	const iconStyle = {
-		color: criteria.hasMinLength ? "green" : "red",
-	};
-	const oneLetterIconStyle = {
-		color: criteria.hasLetter ? "green" : "red",
-	};
-
-	const oneNumberIconStyle = {
-		color: criteria.hasNumber ? "green" : "red",
-	};
-	const hasSpecialCharStyle = {
-		color: criteria.hasSpecialChar ? "green" : "red",
-	};
-
-	const invalidPassword = (obj) =>
-		Object.values(obj).some((value) => value === false);
+	const invalidPassword = Object.values(criteria).some((value) => !value);
 
 	return (
 		<div className='card'>
@@ -83,11 +70,12 @@ const LoginCard = (props) => {
 				<i className='fa-regular fa-user' />
 			</div>
 
-			<form className='form'>
-				<div className={!usernameError ? "form-elements" : "hasError"}>
+			<form
+				className='form'
+				onSubmit={handleSubmit}>
+				<div className={`form-elements ${usernameError ? "hasError" : ""}`}>
 					<input
 						type='text'
-						id='name'
 						name='username'
 						value={formDetails.username}
 						onChange={handleChange}
@@ -104,19 +92,16 @@ const LoginCard = (props) => {
 					</p>
 				)}
 
-				<div
-					className={invalidPassword(criteria) ? "hasError" : "form-elements"}>
+				<div className={`form-elements ${invalidPassword ? "hasError" : ""}`}>
 					<input
 						type={showPassword ? "text" : "password"}
-						id='password'
 						name='password'
-						required
 						value={formDetails.password}
 						onChange={handleChange}
 						placeholder='&#xf023;   Password'
+						required
 						autoComplete='on'
 					/>
-
 					<button
 						className='password-icon'
 						onClick={handleShowPassword}>
@@ -127,63 +112,34 @@ const LoginCard = (props) => {
 						/>
 					</button>
 				</div>
-				{invalidPassword(criteria) && (
+
+				{invalidPassword && (
 					<>
 						<div className='error'>
 							<p>Password should have:</p>
 							<ul>
-								<li className='list'>
-									<p>👉 At least 8 characters</p>
-									<i
-										className={
-											criteria.hasMinLength
-												? "fa-solid fa-circle-check"
-												: "fa-solid fa-circle-xmark"
-										}
-										style={iconStyle}
-									/>
-								</li>
-								<li className='list'>
-									<p>👉 At least one letter</p>
-									<i
-										className={
-											criteria.hasLetter
-												? "fa-solid fa-circle-check"
-												: "fa-solid fa-circle-xmark"
-										}
-										style={oneLetterIconStyle}
-									/>
-								</li>
-								<li className='list'>
-									<p>👉 At least one number</p>
-									<i
-										className={
-											criteria.hasNumber
-												? "fa-solid fa-circle-check"
-												: "fa-solid fa-circle-xmark"
-										}
-										style={oneNumberIconStyle}
-									/>
-								</li>
-								<li className='list'>
-									<p>👉 At least one special character</p>
-									<i
-										className={
-											criteria.hasSpecialChar
-												? "fa-solid fa-circle-check"
-												: "fa-solid fa-circle-xmark"
-										}
-										style={hasSpecialCharStyle}
-									/>
-								</li>
+								{Object.entries(criteria).map(([key, value]) => (
+									<li
+										className='list'
+										key={key}>
+										<p>👉 {getCriteriaText(key)}</p>
+										<i
+											className={`fa-solid ${
+												value ? "fa-circle-check" : "fa-circle-xmark"
+											}`}
+											style={{ color: value ? "green" : "red" }}
+										/>
+									</li>
+								))}
 							</ul>
 						</div>
 						<p className='password-info'>
 							"Password should have minimum eight characters, at least one
-							letter,one number and one special character"
+							letter, one number, and one special character"
 						</p>
 					</>
 				)}
+
 				<div className='checkbox-wrap'>
 					<div className='checkbox'>
 						<input
@@ -200,8 +156,7 @@ const LoginCard = (props) => {
 
 				<button
 					className='login-btn'
-					type='submit'
-					onClick={handleSubmit}>
+					type='submit'>
 					{props.name}
 				</button>
 				<p className='footer-text'>or Login with</p>
@@ -210,6 +165,21 @@ const LoginCard = (props) => {
 			</form>
 		</div>
 	);
+};
+
+const getCriteriaText = (key) => {
+	switch (key) {
+		case "hasMinLength":
+			return "At least 8 characters";
+		case "hasLetter":
+			return "At least one letter";
+		case "hasNumber":
+			return "At least one number";
+		case "hasSpecialChar":
+			return "At least one special character";
+		default:
+			return "";
+	}
 };
 
 export default LoginCard;
